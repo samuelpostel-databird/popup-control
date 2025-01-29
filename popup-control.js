@@ -16,7 +16,7 @@ function initPopupControl() {
         }
 
         // Appliquer les styles pour préparer l'affichage
-        popup.style.display = 'block';
+        popup.style.display = 'block'; // S'assurer que la popup est visible
         popup.style.opacity = '0';
         popup.style.transition = 'opacity 0.5s ease-in-out';
 
@@ -39,14 +39,14 @@ function initPopupControl() {
 
                 sessionStorage.setItem('popupShown', 'true');
             });
+        } else {
+            console.warn("Bouton de fermeture non trouvé !");
         }
     } else {
-        console.log("Popup non trouvé dans le DOM");
+        console.error("Popup non trouvé dans le DOM");
     }
 }
 
 // Exécuter lorsque le document est complètement chargé
-window.onload = function() {
-    initPopupControl();
-};
+document.addEventListener('DOMContentLoaded', initPopupControl);
 </script>
